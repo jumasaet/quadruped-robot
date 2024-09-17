@@ -11,7 +11,7 @@ ADD_COMPILE_OPTIONS(-D_useros)
 # ADD_COMPILE_OPTIONS(-DQPOASES_AVOID_LA_NAMING_CONFLICTS)
 
 option(USE_GO1                            "WHICH ROBOT"                     OFF)
-option(USE_BLAS                            "USE MKL BLAS"                   ON)
+#option(USE_BLAS                            "USE MKL BLAS"                   ON)
 
 
 EXECUTE_PROCESS( COMMAND uname -m COMMAND tr -d '\n' OUTPUT_VARIABLE ARCHITECTURE )
@@ -33,14 +33,14 @@ set(linkPath)
 list(APPEND includePath "/usr/include/eigen3")
 
 #To use BLAS acceleration, uncomment the following lines.
-if (${USE_BLAS})
-   message("--------------USE_BLAS-----------------")
-   set(BLA_VENDOR Intel10_64lp)
-   add_definitions(-DEIGEN_USE_MKL_ALL)
-endif()
+# if (${USE_BLAS})
+#    message("--------------USE_BLAS-----------------")
+#    set(BLA_VENDOR Intel10_64lp)
+#    add_definitions(-DEIGEN_USE_MKL_ALL)
+# endif()
 
-find_package(BLAS REQUIRED)
-message(${BLAS_LIBRARIES})
+# find_package(BLAS REQUIRED)
+# message(${BLAS_LIBRARIES})
 
 
 # library yaml
